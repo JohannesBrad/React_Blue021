@@ -12,6 +12,7 @@ import Home from './Home';
 import About from './About';
 import Services from './Services';
 import Contact from './Contact';
+import Civil from './Civil';
 
 const Navbar = () => {
     return <>
@@ -41,23 +42,34 @@ const Navbar = () => {
         </div>
         </nav>
 
-        <Switch>
-            <Route path="/" exact>
-                <Home/>
-            </Route>   
-            <Route path="/about">
-                <About/>
-            </Route>
+        <Switch>          
+            <Route path="/services/:idCivil">
+                <Civil/>                  
+            </Route>                    
+            <Route path="/contact">
+                <Contact/>
+            </Route>  
             <Route path="/services">
                 <Services/>
             </Route>
-            <Route path="/contact">
-                <Contact/>
-            </Route>
-            {/* <Route path="/services" component={Services}/> */}
-                         
-        </Switch>
+            <Route path="/about">
+                <About/>
+            </Route>      
+            <Route path="/" exact>
+                <Home/>
+            </Route>                       
+        </Switch>     
 
+        {/* Para la navegacion al seleccionar un Id, los dos codigos son válidos  */}
+
+        {/* <Switch>
+          <Route path='/services/:idCivil' component={Civil}/>
+          <Route path='/about' component={About}/>
+          <Route path='/contact' component={Contact}/>
+          <Route path='/services' component={Services}/>
+          <Route path='/' exact component={Home}/>
+        </Switch> */}
+        
     </Router>
 
 </>
